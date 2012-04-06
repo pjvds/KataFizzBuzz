@@ -19,7 +19,7 @@ class FizzBuzzerTests < Test::Unit::TestCase
    end
 
    def test_stringFor_returns_fizz_for_every_number_divisible_by_three
-      divisibleByThree = (1..100).find_all {|i| i%3==0}
+      divisibleByThree = (1..100).find_all {|i| i%3==0 && i%5!=0}
       
       divisibleByThree.each do |number|
          assert_equal("fizz", @fb.stringFor(number))
@@ -31,6 +31,14 @@ class FizzBuzzerTests < Test::Unit::TestCase
       
       divisibleByFive.each do |number|
          assert_equal("buzz", @fb.stringFor(number))
+      end
+   end
+
+   def test_stringFor_returns_fizzbuzz_for_every_number_divisible_by_three_and_five
+      divisibleByThreeAndFive = (1..100).find_all {|i| i%3==0 && i%5==0}
+
+      divisibleByThreeAndFive.each do |number|
+         assert_equal("fizzbuzz", @fb.stringFor(number))
       end
    end
 end
