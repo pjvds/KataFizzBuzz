@@ -25,4 +25,12 @@ class FizzBuzzerTests < Test::Unit::TestCase
          assert_equal("fizz", @fb.stringFor(number))
       end
    end
+
+   def test_stringFor_returns_buzz_for_every_number_divisible_by_five
+      divisibleByFive = (1..100).find_all {|i| i%5==0}
+      
+      divisibleByFive.each do |number|
+         assert_equal("buzz", @fb.stringFor(number))
+      end
+   end
 end
