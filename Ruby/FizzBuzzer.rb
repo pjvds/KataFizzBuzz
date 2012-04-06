@@ -1,7 +1,11 @@
 class FizzBuzzer
 
    def stringFor(number)
-      return "fizz"
+      if number == 3
+         "fizz"
+      else
+        number.to_s()
+      end
    end
 
 end
