@@ -10,6 +10,10 @@ class FizzBuzzerTests < Test::Unit::TestCase
       assert_equal("fizz", @fb.stringFor(3))
    end
 
+   def test_stringFor_returns_buzz_for_number_5
+      assert_equal("buzz", @fb.stringFor(5))
+   end
+
    def test_stringFor_returns_1_for_number_1
       assert_equal("1", @fb.stringFor(1))
    end
