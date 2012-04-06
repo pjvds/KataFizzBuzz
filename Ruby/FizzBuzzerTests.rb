@@ -2,8 +2,8 @@ require "FizzBuzzer"
 require "test/unit"
 
 class FizzBuzzerTests < Test::Unit::TestCase
-   @@fizz = "fizz"
-   @@buzz = "buzz"
+   @@fizz = "Fizz"
+   @@buzz = "Buzz"
    @@fizzbuzz = @@fizz+@@buzz
 
    def setup
@@ -43,6 +43,14 @@ class FizzBuzzerTests < Test::Unit::TestCase
 
       divisibleByThreeAndFive.each do |number|
          assert_equal(@@fizzbuzz, @fb.stringFor(number))
+      end
+   end
+
+   def test_stringFor_returns_number_for_non_fizz_or_buzz_numbers
+      nonFizzOrBuzzNumbers = (1..100).find_all {|i| i%3!=0 && i%5!=0}
+
+      nonFizzOrBuzzNumbers.each do |number|
+         assert_equal(number.to_s(), @fb.stringFor(number))
       end
    end
 end

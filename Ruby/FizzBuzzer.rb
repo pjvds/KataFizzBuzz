@@ -1,9 +1,11 @@
 class FizzBuzzer
+   @@fizz = "Fizz"
+   @@buzz = "Buzz"
 
    def stringFor(number)
       result=""
-      if isFizz(number) then result += "fizz" end
-      if isBuzz(number) then result += "buzz" end
+      if isFizz(number) then result += @@fizz end
+      if isBuzz(number) then result += @@buzz end
       
       return (result=="") ? number.to_s() : result
    end
